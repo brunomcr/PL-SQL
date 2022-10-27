@@ -1,5 +1,7 @@
+DROP TABLE tabela_faturamento;
+
 -- Create Table (Tabela Faturamento)
-create table "TABELA_FATURAMENTO"
-    ("DATA" DATE NULL,
-     "FATURAMENTO" FLOAT
-     );
+CREATE TABLE tabela_faturamento (
+    data        DATE NULL,
+    faturamento FLOAT
+);
