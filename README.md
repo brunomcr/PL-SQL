@@ -1,5 +1,13 @@
 # PL-SQL
 
+#### Tech.
+````shell
+python = "^3.10"
+cx-Oracle = "^8.3.0"
+python-dotenv = "^0.21.0"
+Database = "Oracle Database 21c XE"
+````
+
 #### SQL Categories: 
 * DDL – Data Definition Language (CREATE, DROP, ALTER...)
 * DQL – Data Query Language (SELECT)
@@ -25,3 +33,11 @@
 1. ``Carga_Tabelas_Cadastrais.sql``
 2. ``Carga_Notas.sql``
 3. ``Carga_Items_Notas.sql``
+
+<br>
+
+#### help and knowledge
+* Python Database API Specification v2.0
+https://peps.python.org/pep-0249/
+* Python cx_Oracle
+https://oracle.github.io/python-cx_Oracle/
