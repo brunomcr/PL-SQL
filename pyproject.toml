@@ -6,7 +6,7 @@ authors = ["bruno <bruno.mcreal@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-oracledb = "^1.1.1"
+cx-Oracle = "^8.3.0"
 
 [tool.poetry.dev-dependencies]
 
