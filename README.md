@@ -4,7 +4,7 @@
 ````shell
 python = "^3.10"
 cx-Oracle = "^8.3.0"
-
+python-dotenv = "^0.21.0"
 Database = "Oracle Database 21c XE"
 ````
 
