@@ -1,4 +1,4 @@
-DROP TABLE tabela_de_vendedores_fonte
+execute immediate 'drop table tabela_de_vendedores_fonte
 
 -- Create Tabela Vendedores Fonte
 CREATE TABLE tabela_de_vendedores_fonte (
