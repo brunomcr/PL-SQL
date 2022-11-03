@@ -74,6 +74,7 @@ password=<password>
   1. ``poetry run py criacao_esquema.py``
 * Run DML:
   1. ``poetry run py carga_cadastros.py``
+  2. ``poetry run py carga_notas_fiscais.py``
 
 <br>
 
