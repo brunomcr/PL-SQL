@@ -25,6 +25,9 @@ Database = "Oracle Database 21c XE"
 * TABELA_DE_CLIENTES
 * TABELA_DE_PRODUTOS
 * TABELA_DE_VENDEDORES
+#### Triggers criadas em SQL:
+* TG_UPDATE_TB_FATURAMENTO
+
 #### Tabelas criadas em Python:
 * tb_itens_notas_fiscais
 * tb_notas_fiscais
