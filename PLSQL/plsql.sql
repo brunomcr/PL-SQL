@@ -2,23 +2,17 @@
 SET SERVEROUTPUT ON;
 
 
--- Insert PL/SQL
+-- PL/SQL: Classifica categoria de faturamento.
 DECLARE
-    v_COD PRODUTO_EXERCICIO.COD%type := 7;
-    v_DESCRICAO PRODUTO_EXERCICIO.DESCRICAO%type := 'Sabor Ubatuba';
-    v_CATEGORIA PRODUTO_EXERCICIO.CATEGORIA%type := 'SUco de Fruta';
+    v_faturamento TABELA_FATURAMENTO.FATURAMENTO%type := 2001;
+    v_categoria TABELA_FATURAMENTO.CATEGORIA%type;
 BEGIN
-    insert into PRODUTO_EXERCICIO (COD, DESCRICAO, CATEGORIA) VALUES (v_COD, v_DESCRICAO, upper(v_CATEGORIA));
-    commit;
-END;
-
-
--- Update PL/SQL
-DECLARE
-    v_COD PRODUTO_EXERCICIO.COD%type := 6;
-    v_DESCRICAO PRODUTO_EXERCICIO.DESCRICAO%type := 'Sabor Ubatuba';
-    v_CATEGORIA PRODUTO_EXERCICIO.CATEGORIA%type := 'Suco de Fruta';
-BEGIN
-    update PRODUTO_EXERCICIO set CATEGORIA = initcap(v_CATEGORIA);
-    commit;
+    IF v_faturamento < 1000 THEN
+        v_categoria := 'BAIXO';
+    ELSIF v_faturamento BETWEEN 1000 AND 2000 THEN
+        v_categoria := 'MEDIO';
+    ELSE
+        v_categoria := 'ALTO';
+    END IF;
+    dbms_output.put_line('O Faturamento é: ' || v_categoria);
 END;
