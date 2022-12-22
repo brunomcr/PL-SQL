@@ -8,6 +8,8 @@ authors = ["bruno <bruno.mcreal@gmail.com>"]
 python = "^3.10"
 cx-Oracle = "^8.3.0"
 python-dotenv = "^0.21.0"
+pandas = "^1.5.2"
+openpyxl = "^3.0.10"
 
 [tool.poetry.dev-dependencies]
 
