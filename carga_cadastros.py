@@ -6,7 +6,7 @@ cursor = db_conexao.connection.cursor()
 
 # Data - Cadastro Clientes
 rows = [
-        ('95933280787', 'Fabio Carvalho', 'R. dos Jacarandas da Peninsula', '', 'Barra da Tijuca', 'Rio de Janeiro', 'RJ', '22002020', datetime(1992, 1, 5), 16, 'M', 90000.0000, 18000, 1),
+        ('95939180787', 'Fabio Carvalho', 'R. dos Jacarandas da Peninsula', '', 'Barra da Tijuca', 'Rio de Janeiro', 'RJ', '22002020', datetime(1992, 1, 5), 16, 'M', 90000.0000, 18000, 1),
         ('1471156710', 'Erica Carvalho', 'R. Iriquitia', '', 'Jardins', 'Sao Paulo', 'SP', '80012212', datetime(1990, 9, 1), 27, 'F', 170000.0000, 24500, 0),
         ('19290992743', 'Fernando Cavalcante', 'R. Dois de Fevereiro', '', 'Agua Santa', 'Rio de Janeiro', 'RJ', '22000000', datetime(2000, 2, 12), 18, 'M', 100000.0000, 20000, 1),
         ('2600586709', 'Cesar Teixeira', 'Rua Conde de Bonfim', '', 'Tijuca', 'Rio de Janeiro', 'RJ', '22020001', datetime(2000, 3, 12), 18, 'M', 120000.0000, 22000, 0),
