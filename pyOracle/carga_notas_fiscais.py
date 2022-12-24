@@ -2,8 +2,7 @@ from datetime import datetime
 import pandas as pd
 import db_conexao
 
-
-dataframe = pd.read_csv(r'C:\Users\bruno\PycharmProjects\PL-SQL\DML\carga_notas_fiscais.csv',
+dataframe = pd.read_csv(r'C:\Users\bruno\PycharmProjects\PL-SQL\src\carga_notas_fiscais.csv',
                         delimiter=";", header=None, dtype={0:str, 1:str})
 
 # Data - Notas Fiscais

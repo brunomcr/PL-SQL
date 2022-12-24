@@ -1,7 +1,6 @@
 from datetime import datetime
 import db_conexao
 
-
 cursor = db_conexao.connection.cursor()
 
 # Data - Cadastro Clientes
