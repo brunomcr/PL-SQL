@@ -7,6 +7,8 @@
 python = "^3.10"
 cx-Oracle = "^8.3.0"
 python-dotenv = "^0.21.0"
+pandas = "^1.5.2"
+openpyxl = "^3.0.10"
 Database = "Oracle Database 21c XE"
 ````
 
@@ -71,10 +73,11 @@ password=<password>
 #### Python (cx_Oracle)
 <small>Criação de Esquema e Carga de Dados.</small>
 * Run DDL:
-  1. ``poetry run py criacao_esquema.py``
+  1. ``poetry run py .\pyOracle\criacao_esquema.py``
 * Run DML:
-  1. ``poetry run py carga_cadastros.py``
-  2. ``poetry run py carga_notas_fiscais.py``
+  1. ``poetry run py .\pyOracle\carga_cadastros.py``
+  2. ``poetry run py .\pyOracle\carga_notas_fiscais.py``
+  3. ``poetry run py .\pyOracle\carga_itens_notas_fiscais.py``
 
 <br>
 
