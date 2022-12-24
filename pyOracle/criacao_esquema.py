@@ -1,6 +1,5 @@
 import db_conexao
 
-
 cursor = db_conexao.connection.cursor()
 
 # Drop Tables
