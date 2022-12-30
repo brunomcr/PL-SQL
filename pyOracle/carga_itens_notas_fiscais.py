@@ -1,7 +1,7 @@
 import pandas as pd
 import db_conexao
 
-dataframe = pd.read_csv(r'C:\Users\bruno\PycharmProjects\PL-SQL\src\carga_itens_nota_fiscal.csv',
+dataframe = pd.read_csv(r'C:\Users\bruno\PycharmProjects\PL-SQL\src\carga_itens_notas_fiscais.csv',
                         delimiter=";", header=None, dtype={1:str})
 
 # Data - Notas Fiscais
