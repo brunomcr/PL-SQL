@@ -59,7 +59,7 @@ password=<password>
 
 <br>
 
-#### SQL 
+### SQL 
 <small>Criação de Esquema e Carga de Dados.</small>
 * Run DDL:
   1. ``Criacao_Esquema.sql``
@@ -70,15 +70,28 @@ password=<password>
 
 <br>
 
-#### Python (cx_Oracle)
-<small>Criação de Esquema e Carga de Dados.</small>
-* Run DDL:
-  1. ``poetry run py .\pyOracle\criacao_esquema.py``
-* Run DML:
-  1. ``poetry run py .\pyOracle\carga_cadastros.py``
-  2. ``poetry run py .\pyOracle\carga_notas_fiscais.py``
-  3. ``poetry run py .\pyOracle\carga_itens_notas_fiscais.py``
-
+### Python (cx_Oracle)
+<small>Schema creation and Data load</small>
+* #### Run Main:  <small>(Start a interactive menu)</small>
+``poetry run py main.py``
+- #### Option 1 - DDL:
+  * Run automatically ``create_schema()`` from ``criacao_esquema.py``
+- #### Opcção 2 - DML:
+  * Run automatically ``load_registrations()`` from ``carga_cadastros.py``
+- #### Opcção 3 - DML:
+  - #### Opcção 0 - Origem: <small>Load a Origem data (with 87k invoice´s data and 200k items invoice</small>
+    1. #### Invoce / Notas Fiscais
+       * Run automatically ``load_invoce()`` from ``carga_notas_fiscais.py``
+    2. #### Items Invoce / Itens Notas Fiscais
+       * Run automatically ``load_items_invoce()`` from ``carga_itens_notas_fiscais.py``
+  - #### Opcção 1 - Today: <small>Load a Daily data (with random invoice´s data and items invoice</small>
+    1. #### Fake Data
+       * Run automatically ``FakerDailySalesData`` from ``faker_vendas_diaria.py``
+    2. #### Invoce / Notas Fiscais
+       * Run automatically ``load_invoce()`` from ``carga_notas_fiscais.py``
+    3. #### Items Invoce / Itens Notas Fiscais
+       * Run automatically ``load_items_invoce()`` from ``carga_itens_notas_fiscais.py``
+       
 <br>
 
 #### help and knowledge
