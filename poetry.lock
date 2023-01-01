@@ -39,6 +39,21 @@ files = [
 ]
 
 [[package]]
+name = "faker"
+version = "15.3.4"
+description = "Faker is a Python package that generates fake data for you."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "Faker-15.3.4-py3-none-any.whl", hash = "sha256:c2a2ff9dd8dfd991109b517ab98d5cb465e857acb45f6b643a0e284a9eb2cc76"},
+    {file = "Faker-15.3.4.tar.gz", hash = "sha256:2d5443724f640ce07658ca8ca8bbd40d26b58914e63eec6549727869aa67e2cc"},
+]
+
+[package.dependencies]
+python-dateutil = ">=2.4"
+
+[[package]]
 name = "numpy"
 version = "1.24.0"
 description = "Fundamental package for array computing in Python"
@@ -196,4 +211,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "f68142f87980d18eff355a2f1f8531313583ed54ce0b820cb6d88890b42f1411"
+content-hash = "e2b8aa5cd8e38840b83e6ad964b1c44363151e50b4fc82d1133e0309df0e37fc"
