@@ -9,6 +9,7 @@ cx-Oracle = "^8.3.0"
 python-dotenv = "^0.21.0"
 pandas = "^1.5.2"
 openpyxl = "^3.0.10"
+faker = "^15.3.4"
 Database = "Oracle Database 21c XE"
 ````
 
