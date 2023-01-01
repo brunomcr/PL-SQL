@@ -16,7 +16,7 @@ def main():
         Escolha uma opcção:\n
         1: Dropa e Cria Tabelas
         2: Carga Cadastros
-        3: Carga Vendas
+        3: Carga Vendas (Origem ou Diario)
         """
     )
 

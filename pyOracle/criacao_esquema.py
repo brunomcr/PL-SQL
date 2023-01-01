@@ -91,7 +91,6 @@ def create_schema(connection):
         """
     )
 
-
     # Criação Tabela Itens Notas Fiscais
     cursor.execute(
         """
