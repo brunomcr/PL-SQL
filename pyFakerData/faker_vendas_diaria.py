@@ -90,9 +90,3 @@ class FakerDailySalesData:
                     # itens_nota_fiscal = [numero_itens_nf,codigo_do_produto[0][0],quantidade,preco]
                     inf_writer.writerow(
                         [itens_nota_fiscal[0] + n, itens_nota_fiscal[1], itens_nota_fiscal[2], itens_nota_fiscal[3]])
-
-
-if __name__ == '__main__':
-    faker_sales = FakerDailySalesData()
-    # Start function with ( randon int between a other randon int )
-    faker_sales.create_csv_sale(n_rows=random.randint(random.randint(0, 20),random.randint(20, 100)))
