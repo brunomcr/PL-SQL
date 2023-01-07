@@ -9,25 +9,27 @@ class FakerDailySalesData:
 
     def __init__(self, connection):
 
+        # Oracle cursor.
         self.cursor = connection.cursor()
 
+        # Dir where to put created files.
         self.diretorio = r'C:\Users\bruno\PycharmProjects\PL-SQL\src'
 
+        # List of all CPF from tb_clients.
         self.list_cpf = []
-        # select all CPF from clients
         for row in self.cursor.execute("""select cpf from tb_clientes where 1=1"""):
             self.list_cpf.append(int(row[0]))
 
+        # List of product cod and your price.
         self.list_product_x_price = []
-        # select cod product and your price
         for row in self.cursor.execute("""select codigo_do_produto, preco_de_lista from tb_produtos where 1=1"""):
             row = list(row)
             row[0] = int(row[0])
             row = tuple(row)
             self.list_product_x_price.append(row)
 
+        # List of all registrations of sellers in tb_vendedores
         self.list_registration = []
-        # select all registrations of sellers
         for row in self.cursor.execute("""select matricula from tb_vendedores where 1=1"""):
             self.list_registration.append(row[0])
 
@@ -41,6 +43,11 @@ class FakerDailySalesData:
         [row[0] for row in self.cursor.execute("""select max(data_venda) from tb_notas_fiscais where 1=1""")][0]
 
     def create_data_sale(self):
+        """
+        Creates sale of the day for a single customer (invoice + invoice items)
+
+        :return: nota_fiscal, itens_nota_fiscal (invoice + invoice items)
+        """
 
         faker = Faker()
 
@@ -54,17 +61,29 @@ class FakerDailySalesData:
         imposto = faker.numerify(text='0.%!')
         nota_fiscal = [cpf[0], matricula[0], data_venda, numero_nf, imposto]
 
+        # Quantidade randomica de itens por venda
+        quantity_of_items = random.randint(1, 3)
+
         # ITENS NOTA FISCAL: (NUMERO, CODIGO_DO_PRODUTO, QUANTIDADE, PRECO)
         # Values in csv: 104;788975;66;18.011
-        numero_itens_nf = numero_nf
-        codigo_do_produto = faker.random_choices(elements=self.list_product_x_price, length=1)
-        quantidade = faker.random_int(min=1, max=150)
-        preco = codigo_do_produto[0][1]
-        itens_nota_fiscal = [numero_itens_nf, codigo_do_produto[0][0], quantidade, preco]
+        itens_nota_fiscal = []
+        for item in range(quantity_of_items):
+            numero_itens_nf = numero_nf
+            codigo_do_produto = faker.random_choices(elements=self.list_product_x_price, length=1)
+            quantidade = faker.random_int(min=1, max=150)
+            preco = codigo_do_produto[0][1]
+            itens_nota_fiscal.append([numero_itens_nf, codigo_do_produto[0][0], quantidade, preco])
 
         return nota_fiscal, itens_nota_fiscal
 
     def create_csv_sale(self, n_rows):
+        """
+        Creates csv files for invoice and invoice items, and calls the daily sale build (create_data_sale())
+
+        :param n_rows: Sales quantity
+        :return: carga_notas_fiscais_2023-01-07.csv
+                 carga_itens_notas_fiscais_2023-01-07.csv
+        """
 
         self.diretorio = r'C:\Users\bruno\PycharmProjects\PL-SQL\src'
 
@@ -88,5 +107,5 @@ class FakerDailySalesData:
 
                     # Write csv file for invoice items load
                     # itens_nota_fiscal = [numero_itens_nf,codigo_do_produto[0][0],quantidade,preco]
-                    inf_writer.writerow(
-                        [itens_nota_fiscal[0] + n, itens_nota_fiscal[1], itens_nota_fiscal[2], itens_nota_fiscal[3]])
+                    for item in itens_nota_fiscal:
+                        inf_writer.writerow([item[0] + n, item[1], item[2], item[3]])
