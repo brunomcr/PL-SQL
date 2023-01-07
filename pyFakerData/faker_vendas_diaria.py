@@ -51,8 +51,7 @@ class FakerDailySalesData:
 
         faker = Faker()
 
-        # NOTA FISCAL: (CPF, MATRICULA, DATA_VENDA, NUMERO, IMPOSTO)
-        # Values in csv: 50534475787;00237;2015-1-1;101;0.12
+        # NOTA FISCAL: Format of values in csv: 50534475787;00237;2015-1-1;101;0.12
         cpf = faker.random_choices(elements=self.list_cpf, length=1)
         matricula = faker.random_choices(elements=self.list_registration, length=1)
         data_venda = faker.date_between(self.last_nf_date + datetime.timedelta(1),
@@ -64,12 +63,23 @@ class FakerDailySalesData:
         # Quantidade randomica de itens por venda
         quantity_of_items = random.randint(1, 3)
 
-        # ITENS NOTA FISCAL: (NUMERO, CODIGO_DO_PRODUTO, QUANTIDADE, PRECO)
-        # Values in csv: 104;788975;66;18.011
+        # ITENS NOTA FISCAL: Format of values in csv: 104;788975;66;18.011
         itens_nota_fiscal = []
         for item in range(quantity_of_items):
+            print(item)
             numero_itens_nf = numero_nf
-            codigo_do_produto = faker.random_choices(elements=self.list_product_x_price, length=1)
+
+            # Processo para nao repetir produto na mesma venda, ocasionando erro de primary key
+            codigo_do_produto = []
+            if not itens_nota_fiscal:
+                print('VAZIO')
+                codigo_do_produto = faker.random_choices(elements=self.list_product_x_price, length=1)
+            else:
+                codigo_do_produto = faker.random_choices(elements=self.list_product_x_price, length=1)
+                while codigo_do_produto[0][0] in itens_nota_fiscal[item-1]:
+                    print('Esta dentro')
+                    codigo_do_produto = faker.random_choices(elements=self.list_product_x_price, length=1)
+
             quantidade = faker.random_int(min=1, max=150)
             preco = codigo_do_produto[0][1]
             itens_nota_fiscal.append([numero_itens_nf, codigo_do_produto[0][0], quantidade, preco])
