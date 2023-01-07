@@ -38,6 +38,8 @@ Database = "Oracle Database 21c XE"
 * tb_produtos
 * tb_vendedores
 
+![relational](https://user-images.githubusercontent.com/61769161/211146436-e9368664-6764-4cbe-94ba-48582a44d0ef.png)
+
 <br>
 
 ### How to use:
