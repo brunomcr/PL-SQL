@@ -2,7 +2,8 @@
 
 <br>
 
-#### Main Tech.
+### Main Tech.
+* Python and Libs
 ````shell
 python = "^3.10"
 cx-Oracle = "^8.3.0"
@@ -10,10 +11,15 @@ python-dotenv = "^0.21.0"
 pandas = "^1.5.2"
 openpyxl = "^3.0.10"
 faker = "^15.3.4"
+````
+* Oracle Database
+````shell
 Database = "Oracle Database 21c XE"
 ````
 
-#### SQL Categories: 
+<br>
+
+### SQL Categories: 
 * DDL – Data Definition Language (CREATE, DROP, ALTER...)
 * DQL – Data Query Language (SELECT)
 * DML – Data Manipulation Language (INSERT, UPDATE, DELETE...)
@@ -22,33 +28,28 @@ Database = "Oracle Database 21c XE"
 
 <br>
 
-#### Tabelas criadas em SQL:
-* ITENS_NOTAS_FISCAIS
-* NOTAS_FISCAIS
-* TABELA_DE_CLIENTES
-* TABELA_DE_PRODUTOS
-* TABELA_DE_VENDEDORES
-#### Triggers criadas em SQL:
-* TG_UPDATE_TB_FATURAMENTO
-
-#### Tabelas criadas em Python:
+### Tables created in Python:
 * tb_itens_notas_fiscais
 * tb_notas_fiscais
 * tb_clientes
 * tb_produtos
 * tb_vendedores
 
+
+Schema:
 ![relational](https://user-images.githubusercontent.com/61769161/211146436-e9368664-6764-4cbe-94ba-48582a44d0ef.png)
 
 <br>
+<hr>
+<br>
 
 ### How to use:
-#### Install and Create Oracle Database
+#### 1. Install and Create Oracle Database 21c xe
 * <small>(nov/2022)</small> https://www.oracle.com/br/database/technologies/xe-downloads.html
 
 <br>
 
-#### Create .env file
+#### 2. Create .env file
 ````shell
 # DSN
 host=<host>
@@ -62,19 +63,9 @@ password=<password>
 
 <br>
 
-### SQL 
-<small>Criação de Esquema e Carga de Dados.</small>
-* Run DDL:
-  1. ``Criacao_Esquema.sql``
-* Run DML:
-  1. ``Carga_Tabelas_Cadastrais.sql``
-  2. ``Carga_Notas.sql``
-  3. ``Carga_Items_Notas.sql``
-
-<br>
-
-### Python (cx_Oracle)
+#### 3. Python (cx_Oracle)
 <small>Schema creation and Data load</small>
+
 * #### Run Main:  <small>(Start a interactive menu)</small>
 ``poetry run py main.py``
 
@@ -105,3 +96,7 @@ password=<password>
 https://peps.python.org/pep-0249/
 * Python cx_Oracle
 https://oracle.github.io/python-cx_Oracle/
+* Python Pandas
+https://pandas.pydata.org/docs/
+* Python Faker
+https://faker.readthedocs.io/en/master/
