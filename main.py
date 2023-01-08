@@ -1,11 +1,11 @@
 import datetime
 import random
-import time
 
 import cx_Oracle
 
 from db_conexao import connect_oracle
-from pyOracle import criacao_esquema, carga_cadastros, carga_notas_fiscais, carga_itens_notas_fiscais
+from pyOracle.DML import carga_itens_notas_fiscais, carga_cadastros, carga_notas_fiscais
+from pyOracle.DDL import criacao_esquema
 from pyFakerData.faker_vendas_diaria import FakerDailySalesData
 
 
