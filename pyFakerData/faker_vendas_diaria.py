@@ -60,25 +60,24 @@ class FakerDailySalesData:
         imposto = faker.numerify(text='0.%!')
         nota_fiscal = [cpf[0], matricula[0], data_venda, numero_nf, imposto]
 
-        # Quantidade randomica de itens por venda
-        quantity_of_items = random.randint(1, 3)
-
         # ITENS NOTA FISCAL: Format of values in csv: 104;788975;66;18.011
         itens_nota_fiscal = []
+        quantity_of_items = random.randint(1, 20)    # Quantidade randomica de itens por venda
         for item in range(quantity_of_items):
-            print(item)
             numero_itens_nf = numero_nf
-
-            # Processo para nao repetir produto na mesma venda, ocasionando erro de primary key
-            codigo_do_produto = []
-            if not itens_nota_fiscal:
-                print('VAZIO')
+            # Processo para nao repetir produto na mesma venda
+            codigo_do_produto = [] # nao apagar, usado como referencia abaixo.
+            if not itens_nota_fiscal: # se estiver vazio a lista
                 codigo_do_produto = faker.random_choices(elements=self.list_product_x_price, length=1)
             else:
                 codigo_do_produto = faker.random_choices(elements=self.list_product_x_price, length=1)
-                while codigo_do_produto[0][0] in itens_nota_fiscal[item-1]:
-                    print('Esta dentro')
-                    codigo_do_produto = faker.random_choices(elements=self.list_product_x_price, length=1)
+                numero = 0
+                while numero < len(itens_nota_fiscal):
+                    # Enqauanto codigo_do_produto[0][0] existir na lista, gera outro codigo_do_produto, faz isso para cada item na lista.
+                    while codigo_do_produto[0][0] in itens_nota_fiscal[numero]:
+                        codigo_do_produto = faker.random_choices(elements=self.list_product_x_price, length=1)
+                        numero = 0 # Zera numero para resetar o loop, verificando sempre apartir do primeiro item da lista.
+                    numero += 1 # Incrementa numero para o proximo item da lista.
 
             quantidade = faker.random_int(min=1, max=150)
             preco = codigo_do_produto[0][1]
