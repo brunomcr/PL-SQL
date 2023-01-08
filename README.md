@@ -77,6 +77,9 @@ password=<password>
 <small>Schema creation and Data load</small>
 * #### Run Main:  <small>(Start a interactive menu)</small>
 ``poetry run py main.py``
+
+![menu](https://user-images.githubusercontent.com/61769161/211196569-6e656bc4-36f4-4ae2-b391-19f619e9e412.png)
+
 - #### Option 1 - DDL:
   * Run automatically ``create_schema()`` from ``criacao_esquema.py``
 - #### Opcção 2 - DML:
